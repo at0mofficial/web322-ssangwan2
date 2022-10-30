@@ -1,0 +1,89 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+/* Styles */
+.login-wrapper > p {
+    display: none;
+}
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+.login-wrapper > p, .login-wrapper > .vhr {
+    display: none;
+}
+}
+ 
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+ 
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px) {
+/* Styles */
+.meal-category-item > p {
+    font-size: 200px;
+}
+.meal-category-item {
+    padding-top: 215px;
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+ 
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+}
+ 
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1024px) {
+/* Styles */
+.meal-category-item {
+    padding-top: 215px;
+    grid-template-columns: repeat(2, 1fr);
+}
+.meal-category-item > p {
+    font-size: 200px;
+}
+}
+ 
+@media only screen
+and (min-width : 1224px){
+    .login-wrapper > p, .login-wrapper > .vhr {
+        display: block;
+    }
+}
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+.meal-category-item {
+    grid-template-columns: repeat(3, 1fr);
+}
+}
+ 
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

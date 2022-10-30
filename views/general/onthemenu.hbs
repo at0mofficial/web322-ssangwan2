@@ -1,0 +1,13 @@
+<section class="meal-category px-2">
+    <div class="hr hr-long-sleek"></div>
+    <p class="text-center">OUR MENU</p>
+
+    {{#each mealcat}}
+    <div class="meal-category-item d-grid">
+        <p class="text-center">{{categoryName}}</p>
+        {{#each mealKits}}
+        {{>mealkit}}
+        {{/each}}
+    </div>
+    {{/each}}
+</section>

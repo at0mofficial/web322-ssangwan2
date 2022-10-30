@@ -1,0 +1,42 @@
+{{>hero}}
+<section class="top-meals" id="top-meals">
+    <h2><span>Top</span> Picks</h2>
+    <div class="hr"></div>
+    <div class="top-meals-card d-flex flex-wrap">
+
+        {{#each mealkit}}
+        {{>mealkit}}
+        {{/each}}
+    </div>
+</section>
+
+<section class="features py-5 py-md-5 py-lg-0">
+    <h2>Why us <span>?</span></h2>
+    <div class="hr"></div>
+    <div class="features-card d-flex flex-wrap justify-content-evenly">
+        <div class="feature-item">
+            <div class="feature-item-display-img" id="feature-item-display-img-1">
+            </div>
+            <h3>We bring you Recipies from all around the globe.</h3>
+            <p>We put all of our heart and soul into bringing you the best spicy meals this world has to offer to
+                satisfy you chilly loving tastebuds through unique menus every week so that you'll never run out of
+                options. </p>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-item-display-img" id="feature-item-display-img-2">
+            </div>
+            <h3>Only the spiciest delicacies to lit you tastebuds on FIRE.</h3>
+            <p>Every meal you recieve is handpicked from different parts of the world and is checked by our experts to
+                ensure the every bite packs a fiery punch of flavours in you mouth.</p>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-item-display-img" id="feature-item-display-img-3">
+            </div>
+            <h3>Fresh &amp; Quality checked raw materials only.</h3>
+            <p>A good meal always starts with fresh and quality raw materials. We provide you with healthy and quality
+                checked raw materials to make sure you're getting the best out of every meal.</p>
+        </div>
+    </div>
+</section>
