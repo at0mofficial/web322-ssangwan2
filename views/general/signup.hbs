@@ -1,26 +1,32 @@
 <section class="login-wrapper d-flex justify-content-around align-items-center">
-        <p>Create an Account</p>
-        <div class="vhr"></div>
-        <div class="login-content p-5 text-center d-flex flex-column align-items-center">
-            <p>Signup</p>
-            <form action="post">
-                <div class="login-textbox-wrapper d-flex align-items-center mb-2">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" name="user"placeholder="Username">
-                </div>
-                <div class="login-textbox-wrapper d-flex align-items-center mb-2">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="email" name="user"placeholder="example@email.com">
-                </div>
-                <div class="login-textbox-wrapper d-flex align-items-center mb-2">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="login-textbox-wrapper d-flex align-items-center mb-3">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" name="password" placeholder="Confirm Password">
-                </div>
-                <button type="submit" class="login-btn">Signup</button>
-            </form>
-        </div>
-    </section>
+    <p>Create an Account</p>
+    <div class="vhr"></div>
+    <div class="login-content p-5 text-center d-flex flex-column align-items-center">
+        <p>Signup</p>
+        <form method="post" action="/sign-up">
+            <div class="login-textbox-wrapper d-flex align-items-center mb-2">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="username" placeholder="Username" value="{{values.username}}">
+                {{#if errorMessage.username}}
+                <span class="badge rounded-pill text-danger p-1"><i class="fa-solid fa-2x fa-circle-exclamation"></i></span>
+                {{/if}}
+            </div>
+            {{#if errorMessage.username}}
+            <span class="text-danger">{{errorMessage.username}}</span><br>
+            {{/if}}
+            <div class="login-textbox-wrapper d-flex align-items-center mb-2">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="text" name="email" placeholder="example@email.com" value="{{values.email}}">
+            </div>
+            <div class="login-textbox-wrapper d-flex align-items-center mb-2">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="ipass" placeholder="Password">
+            </div>
+            <div class="login-textbox-wrapper d-flex align-items-center mb-3">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="cpass" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="login-btn">Signup</button>
+        </form>
+    </div>
+</section>

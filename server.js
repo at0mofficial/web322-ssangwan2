@@ -24,6 +24,8 @@ app.engine(".hbs", exphbs.engine({
  }));
 app.set("view engine", ".hbs");
 
+// setting body-parser
+app.use(express.urlencoded({extended: false}));
 
 app.get("/", (req, res) => {
 res.render("general/home",{
@@ -36,6 +38,40 @@ res.render("general/login");
 
 app.get("/sign-up", (req, res) => {
 res.render("general/signup");
+});
+
+app.post("/sign-up", (req, res) => {
+    // const {username, email, ipaass, cpass} = req.body;
+    console.log(req.body);
+    
+    const {username, email, ipass, cpass} = req.body;
+    let passedValidation = true;
+    let errorMessage = {};
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~ ]/;
+  
+    if (typeof username !=="string" || username.trim().length < 3 || username.trim().length > 25){
+        passedValidation = false;
+        errorMessage.username = "*Username must be 3 to 25 characters long"
+    }
+    else if(specialChars.test(req.body.username)){
+        passedValidation = false;
+        errorMessage.username = "*No spaces or special characters allowed!"
+    }
+    // \d is range of number from 0-9
+    else if(/^\d/.test(req.body.username)){
+        passedValidation = false;
+        errorMessage.username = "*Username must start with a letter"
+    }
+    
+    if(passedValidation){
+        res.send("PassedValidation");
+    }
+    else{
+        res.render("general/signup",{
+            values: req.body,
+            errorMessage
+        });
+    }
 });
 
 app.get("/on-the-menu", (req, res) => {
