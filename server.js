@@ -48,6 +48,8 @@ app.post("/sign-up", (req, res) => {
     let passedValidation = true;
     let errorMessage = {};
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~ ]/;
+    const complexEmail = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9]+.([a-z]+)(.[a-z]+))?$/;
+    const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   
     if (typeof username !=="string" || username.trim().length < 3 || username.trim().length > 25){
         passedValidation = false;
@@ -63,6 +65,11 @@ app.post("/sign-up", (req, res) => {
         errorMessage.username = "*Username must start with a letter"
     }
     
+    if(!validEmail.test(req.body.email)){
+        passedValidation = false;
+        errorMessage.email = "*Enter a valid email address"
+    }
+
     if(passedValidation){
         res.send("PassedValidation");
     }
