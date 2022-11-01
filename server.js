@@ -48,8 +48,8 @@ app.post("/sign-up", (req, res) => {
     let passedValidation = true;
     let errorMessage = {};
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~ ]/;
-    const complexEmail = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9]+.([a-z]+)(.[a-z]+))?$/;
     const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const checkPassword=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
   
     if (typeof username !=="string" || username.trim().length < 3 || username.trim().length > 25){
         passedValidation = false;
@@ -68,6 +68,20 @@ app.post("/sign-up", (req, res) => {
     if(!validEmail.test(req.body.email)){
         passedValidation = false;
         errorMessage.email = "*Enter a valid email address"
+    }
+        // To check a password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
+    if(!req.body.ipass.match(checkPassword)){
+        passedValidation = false;
+        errorMessage.ipass = "Password must be between 8 to 15 characters and muct contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character ";
+    }
+    // else if(!req.body.cpass.match(checkPassword)){
+    //     passedValidation = false;
+    //     errorMessage.cpass = "Password must be between 8 to 15 characters and muct contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character ";
+    // }
+     
+    if (req.body.cpass != req.body.ipass){
+        passedValidation = false;
+        errorMessage.cpass = "Passwords don't match!"
     }
 
     if(passedValidation){

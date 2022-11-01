@@ -30,11 +30,24 @@
             <div class="login-textbox-wrapper d-flex align-items-center mb-2">
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="ipass" placeholder="Password">
+                {{#if errorMessage.ipass}}
+                <span class="badge rounded-pill text-danger p-1"><i class="fa-solid fa-2x fa-circle-exclamation"></i></span>
+                {{/if}}
             </div>
+            {{#if errorMessage.ipass}}
+            <span class="text-danger">{{errorMessage.ipass}}</span><br>
+            {{/if}}
+            {{!-- For confirming Password --}}
             <div class="login-textbox-wrapper d-flex align-items-center mb-3">
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="cpass" placeholder="Confirm Password">
+                {{#if errorMessage.cpass}}
+                <span class="badge rounded-pill text-danger p-1"><i class="fa-solid fa-2x fa-circle-exclamation"></i></span>
+                {{/if}}
             </div>
+            {{#if errorMessage.cpass}}
+            <span class="text-danger">{{errorMessage.cpass}}</span><br>
+            {{/if}}
             {{!-- Button --}}
             <button type="submit" class="login-btn">Signup</button>
         </form>
