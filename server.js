@@ -85,7 +85,7 @@ app.post("/sign-up", (req, res) => {
     let passedValidation = true;
     let errorMessage = {};
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~ ]/;
-    const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const checkPassword=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,12}$/;
   
     if (typeof username !=="string" || username.trim().length < 3 || username.trim().length > 25){
